@@ -3,7 +3,7 @@
 Real-time weather app using Open-Meteo API — **no API key required**.
 
 ## 🚀 Live Demo
-[dakshjain.github.io/weather-app](https://dakshjain.github.io/weather-app)
+[Dakshjain2006.github.io/weather-app](https://Dakshjain2006.github.io/weather-app)
 
 ## ✨ Features
 - 🔍 Search any city worldwide
