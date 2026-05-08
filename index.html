@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Weather Forecast — Daksh Jain</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <h1>☁ Weather</h1>
+    <p class="subtitle">Live Forecast · Real-time Data</p>
+
+    <div class="search-bar">
+      <input id="city-input" type="text" placeholder="Search city (e.g. Mumbai, London, Tokyo)…"
+             onkeydown="if(event.key==='Enter') fetchWeather()" />
+      <button onclick="fetchWeather()">Search</button>
+    </div>
+
+    <div id="error-msg"   class="error hidden"></div>
+    <div id="loading"     class="loading hidden">⟳ Fetching weather…</div>
+
+    <div id="weather-content" class="hidden">
+      <div class="main-card">
+        <div class="top-row">
+          <div>
+            <div class="city-name" id="city-display"></div>
+            <div class="city-date" id="date-display"></div>
+          </div>
+          <div class="weather-icon" id="w-icon"></div>
+          <div class="temp-display">
+            <div class="temp" id="temp-display"></div>
+            <div class="condition" id="condition-display"></div>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><div class="stat-icon">💧</div><div class="stat-val" id="humidity"></div><div class="stat-label">Humidity</div></div>
+          <div class="stat"><div class="stat-icon">🌬</div><div class="stat-val" id="wind"></div><div class="stat-label">Wind</div></div>
+          <div class="stat"><div class="stat-icon">👁</div><div class="stat-val" id="visibility"></div><div class="stat-label">Visibility</div></div>
+          <div class="stat"><div class="stat-icon">🌡</div><div class="stat-val" id="feelslike"></div><div class="stat-label">Feels Like</div></div>
+        </div>
+      </div>
+
+      <div class="main-card">
+        <div class="forecast-label">5-Day Forecast</div>
+        <div class="forecast" id="forecast-row"></div>
+      </div>
+    </div>
+
+    <p class="api-note">Powered by Open-Meteo · No API key required · Real weather data</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
