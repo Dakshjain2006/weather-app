@@ -1,0 +1,181 @@
+/* ── Reset ── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ── Body & themes ── */
+body {
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: background 1s ease;
+  color: white;
+}
+
+/* Weather-based themes applied via JS */
+body.sunny  { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); }
+body.cloudy { background: linear-gradient(135deg, #a8c0cc 0%, #6b8fa3 100%); }
+body.rainy  { background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%); }
+body.stormy { background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%); }
+body.snowy  { background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%); color: #333; }
+body.night  { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+
+/* ── Layout ── */
+.container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+
+/* ── Heading ── */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+.subtitle {
+  text-align: center;
+  opacity: 0.7;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+/* ── Search bar ── */
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50px;
+  padding: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.search-bar input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  padding: 8px 16px;
+}
+.search-bar input::placeholder { color: rgba(255,255,255,0.6); }
+.search-bar button {
+  background: rgba(255,255,255,0.25);
+  border: none;
+  border-radius: 40px;
+  padding: 10px 24px;
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  letter-spacing: 1px;
+}
+.search-bar button:hover { background: rgba(255,255,255,0.4); }
+
+/* ── Error / loading states ── */
+.error {
+  background: rgba(255,100,100,0.2);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  opacity: 0.9;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,100,100,0.3);
+}
+.loading {
+  text-align: center;
+  padding: 60px;
+  font-size: 18px;
+  opacity: 0.7;
+}
+.hidden { display: none; }
+
+/* ── Card ── */
+.main-card {
+  background: rgba(255,255,255,0.15);
+  border-radius: 24px;
+  padding: 36px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.2);
+  margin-bottom: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+/* ── Top row ── */
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.city-name  { font-size: 28px; font-weight: 600; }
+.city-date  { opacity: 0.7; font-size: 14px; margin-top: 4px; }
+.weather-icon { font-size: 80px; line-height: 1; }
+.temp {
+  font-family: 'Playfair Display', serif;
+  font-size: 88px;
+  font-weight: 700;
+  line-height: 1;
+}
+.temp sup { font-size: 32px; vertical-align: top; margin-top: 12px; }
+.condition { font-size: 18px; opacity: 0.85; text-align: center; margin-top: 4px; font-style: italic; }
+
+/* ── Stats row ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 30px;
+}
+.stat {
+  background: rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+}
+.stat-icon  { font-size: 22px; }
+.stat-val   { font-size: 20px; font-weight: 600; margin-top: 4px; }
+.stat-label { font-size: 11px; opacity: 0.65; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+/* ── Forecast ── */
+.forecast-label {
+  font-size: 13px;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+.day-card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 16px 8px;
+  text-align: center;
+  transition: all 0.2s;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.day-card:hover { background: rgba(255,255,255,0.2); transform: translateY(-3px); }
+.day-name { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; }
+.day-icon { font-size: 28px; margin: 8px 0; }
+.day-temp { font-size: 18px; font-weight: 600; }
+.day-lo   { font-size: 12px; opacity: 0.6; margin-top: 2px; }
+
+/* ── Footer note ── */
+.api-note { text-align: center; font-size: 12px; opacity: 0.55; margin-top: 20px; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .stats    { grid-template-columns: repeat(2, 1fr); }
+  .forecast { grid-template-columns: repeat(3, 1fr); }
+  .top-row  { justify-content: center; text-align: center; }
+  .temp     { font-size: 64px; }
+  h1        { font-size: 34px; }
+}
