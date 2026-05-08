@@ -33,12 +33,5 @@ weather-app/
 - **Geocoding**: `https://geocoding-api.open-meteo.com/v1/search`
 - **Weather**:   `https://api.open-meteo.com/v1/forecast`
 
-## 🏃 Run Locally
-```bash
-git clone https://github.com/dakshjain/weather-app
-cd weather-app
-open index.html   # or double-click index.html
-```
-
 ---
 Built by **Daksh Jain** · B.Tech CSAI, NSUT
